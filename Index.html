@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntelliBot - Your AI Study Assistant</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="floating-particles" id="particles"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>🤖 IntelliBot</h1>
+            <p>Your Personalized AI Study Assistant</p>
+        </div>
+
+        <div class="main-grid">
+            <div class="panel">
+                <h3>📊 Daily Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="dailyProgress" style="width: 0%"></div>
+                </div>
+                <p id="progressText">0% Complete Today</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="questionsAnswered">0</div>
+                        <div class="stat-label">Questions Answered</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="studyStreak">0</div>
+                        <div class="stat-label">Day Streak</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h3>📝 Task Manager</h3>
+                <input type="text" class="task-input" id="taskInput" placeholder="Add a new study task...">
+                <button class="btn" onclick="addTask()">Add Task</button>
+
+                <div id="taskList" style="margin-top: 15px;">
+                    </div>
+            </div>
+
+            <div class="panel">
+                <h3>⏰ Study Reminders</h3>
+                <div style="margin-bottom: 15px;">
+                    <input type="time" class="task-input" id="reminderTime" style="margin-bottom: 5px;">
+                    <input type="text" class="task-input" id="reminderText" placeholder="Reminder message...">
+                    <button class="btn" onclick="setReminder()">Set Reminder</button>
+                </div>
+
+                <div id="reminderList">
+                    </div>
+            </div>
+        </div>
+
+        <div class="chat-container">
+            <h3 style="margin-bottom: 20px; color: #333;">💬 Chat with IntelliBot</h3>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    <div class="message-bubble">
+                        Hello! I'm IntelliBot, your AI study assistant. I can help you with academic questions, track your progress, and manage your study schedule. What would you like to know today?
+                    </div>
+                </div>
+            </div>
+
+            <div class="typing-indicator" id="typingIndicator">
+                <div class="typing-dots">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            </div>
+
+            <div class="chat-input-container">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Ask me anything about your studies..." onkeypress="handleKeyPress(event)">
+                <button class="send-btn" onclick="sendMessage()">Send</button>
+            </div>
+            </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
